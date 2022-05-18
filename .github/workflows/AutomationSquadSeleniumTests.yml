@@ -13,6 +13,7 @@ on:
       environment:   # e.g. "production"
         required: true
         type: string
+    secrets:
       slack_webhook: # e.g. ${{secrets.SLACK_TEST_RESULTS_SMARTX_TESTING}}
         required: true
         type: string
@@ -77,5 +78,5 @@ jobs:
             SLACK_COLOR: ${{ job.status }}
             SLACK_MESSAGE: '${{env.NOTIFY}} ${{inputs.suite}} Tests ${{ job.status }} with ${{steps.ptests.outputs.NUM_FAILS}} errors. ${{steps.ptests.outputs.NUM_TESTS}} tests run. ${{steps.ptests.outputs.CYCLE_NAME}} ${{env.ZCROOT}}&version.id=${{steps.ptests.outputs.CYCLE_VERSION}}&cycle.id=${{steps.ptests.outputs.CYCLE_ID}}&versionReleased=false'
             SLACK_TITLE: ${{github.repository}}
-            SLACK_WEBHOOK: ${{inputs.slack_webhook}}
+            SLACK_WEBHOOK: ${{secrets.slack_webhook}}
             SLACK_LINK_NAMES : true
