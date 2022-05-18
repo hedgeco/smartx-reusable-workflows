@@ -40,13 +40,14 @@ jobs:
         - uses: actions/checkout@v3
           with:
             repository: hedgeco/smartx-testing
+            ref: refs/heads/main
             path: smartx-testing
         - name: Where are we? Delete This 2
           run: |
             pwd
             ls -al
 #        - name: Selenide Script
-#          working-directory: ./testng
+#          working-directory: ./smartx-tetin/testng
 #          run: |
 #            chmod a+x ./selenide.sh
 #            bash ./selenide.sh ${{inputs.suite}} ${{inputs.environment}}
