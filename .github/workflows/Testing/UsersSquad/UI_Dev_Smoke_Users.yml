@@ -1,0 +1,11 @@
+name: Users_UI_Tests_Smoke_Dev
+on: [workflow_dispatch]
+
+jobs:
+  call-workflow-passing-data:
+    uses: hedgeco/smartx-reusable-workflows/.github/workflows/reusable-workflow.yml@main
+    with:
+      squad: "users-and-tools"
+      suite: "usersAndToolsSmoke"
+      environment: "production"
+    secrets: inherit
