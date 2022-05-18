@@ -9,5 +9,4 @@ jobs:
       suite: "usersAndToolsSmoke"
       environment: "production"
     secrets:
-        inherit
         slack_webhook: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_PRODUCTION}}
