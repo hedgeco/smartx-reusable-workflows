@@ -39,6 +39,10 @@ jobs:
             aws-access-key-id: ${{ secrets.DEPLOYMENT_USER_QAU_KEY }}
             aws-secret-access-key: ${{ secrets.DEPLOYMENT_USER_QAU_SECRET }}
             aws-region: us-east-1
+        - name: Selenide Script
+          working-directory: ./testng
+          run: echo ${{inputs.squad}} ${{inputs.suite}} ${{inputs.environment}} 
+
 #        - uses: actions/checkout@v2
 #        - name: Selenide Script
 #          working-directory: ./testng
