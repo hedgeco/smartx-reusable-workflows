@@ -35,9 +35,13 @@ jobs:
             aws-access-key-id: ${{ secrets.DEPLOYMENT_USER_QAU_KEY }}
             aws-secret-access-key: ${{ secrets.DEPLOYMENT_USER_QAU_SECRET }}
             aws-region: us-east-1
+        - name: Where are we? Delete This
+          run: pwd
         - uses: actions/checkout@v3
           with:
               repository: hedgeco/smartx-testing
+        - name: Where are we? Delete This 2
+          run: pwd
         - name: Selenide Script
           working-directory: ./testng
           run: |
