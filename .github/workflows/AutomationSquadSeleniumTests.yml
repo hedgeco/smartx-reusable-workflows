@@ -41,7 +41,9 @@ jobs:
           with:
               repository: hedgeco/smartx-testing
         - name: Where are we? Delete This 2
-          run: pwd
+          run: |
+            pwd
+            ls -al
         - name: Selenide Script
           working-directory: ./testng
           run: |
