@@ -16,7 +16,6 @@ on:
     secrets:
       slack_webhook: # e.g. ${{secrets.SLACK_TEST_RESULTS_SMARTX_TESTING}}
         required: true
-        type: string
 
 env:
   JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
