@@ -86,5 +86,5 @@ jobs:
             SLACK_COLOR: ${{ job.status }}
             SLACK_MESSAGE: '${{env.NOTIFY}} ${{inputs.suite}} Tests ${{ job.status }} with ${{steps.ptests.outputs.NUM_FAILS}} errors. ${{steps.ptests.outputs.NUM_TESTS}} tests run. ${{steps.ptests.outputs.CYCLE_NAME}} ${{env.ZCROOT}}&version.id=${{steps.ptests.outputs.CYCLE_VERSION}}&cycle.id=${{steps.ptests.outputs.CYCLE_ID}}&versionReleased=false'
             SLACK_TITLE: ${{github.repository}}
-            SLACK_WEBHOOK: ${{inputs.SLACK_WEBHOOK}}
+            SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
             SLACK_LINK_NAMES : true

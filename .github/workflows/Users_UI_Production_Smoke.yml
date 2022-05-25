@@ -8,8 +8,8 @@ jobs:
       squad: "users-and-tools"
       suite: "usersAndToolsSmoke"
       environment: "production"
-      webhook_name: "secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_PRODUCTION"
     secrets:
       JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
       ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
       ZEPHYR_SECRET: ${{secrets.ZEPHYR_SECRET}}
+      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_PRODUCTION}}
