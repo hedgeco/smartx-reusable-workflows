@@ -26,7 +26,7 @@ env:
   ZCROOT: "https://smartx.atlassian.net/projects/TEST?selectedItem=com.thed.zephyr.je__cycle-summary&testsTab=test-cycles-tab"
 
 jobs:
-    selenium-tests:
+    selenium-tests:  # runtime pwd _work/smartx-reusable-workflows/smartx-reusable-workflows
         runs-on: AutomationRoot  #  TODO
         steps:
         - name: Set AWS credentials
@@ -35,57 +35,51 @@ jobs:
             aws-access-key-id: ${{ secrets.DEPLOYMENT_USER_QAU_KEY }}
             aws-secret-access-key: ${{ secrets.DEPLOYMENT_USER_QAU_SECRET }}
             aws-region: us-east-1
-        - name: Where are we? Delete This
-          run: pwd
         - uses: actions/checkout@v3
           with:
             repository: hedgeco/smartx-testing
             token: ${{ secrets.PAT_USER_TESTING }}
             path: smartx-testing
-        - name: Where are we? Delete This 2
+        - name: Selenide Script
+          working-directory: ./smartx-teting/testng
           run: |
-            pwd
-            ls -al
-#        - name: Selenide Script
-#          working-directory: ./smartx-teting/testng
-#          run: |
-#            chmod a+x ./selenide.sh
-#            bash ./selenide.sh ${{inputs.suite}} ${{inputs.environment}}
-#          id: ptests
-#        - name: Upload test result for job 2
-#          if: always()
-#          uses: actions/upload-artifact@v2
-#          with:
-#            name: selenium_results
-#            path: "./testng/app/${{env.RESULTS_FILE}}"
-#    update-slack:
-#        if: always()
-#        needs: selenium-tests
-#        runs-on: self-hosted
-#        steps:
-#        - name: Download test result for job 2
-#          uses: actions/download-artifact@v2
-#          with:
-#            name: selenium_results
-#        - name: add write and execute access to all
-#          run: chmod a+wx "./${{env.RESULTS_FILE}}"
-#        - name: Fix Windows new line
-#          run: dos2unix "./${{env.RESULTS_FILE}}"
-#        - name: run the script
-#          run: "./${{env.RESULTS_FILE}}"
-#          id: ptests
-#        - name: Check for failure and update slack notification message
-#          if: failure()
-#          run: echo "NOTIFY=@here" >> $GITHUB_ENV
-#        - name: Update Slack
-#          if: always()
-#          uses: rtCamp/action-slack-notify@v2
-#          env:
-#            SLACK_CHANNEL: test-results-${{inputs.squad}}-${{inputs.environment}}
-#            SLACK_USERNAME: SmarTestBot
-#            SLACK_ICON: https://github.com/rtCamp.png?size=48
-#            SLACK_COLOR: ${{ job.status }}
-#            SLACK_MESSAGE: '${{env.NOTIFY}} ${{inputs.suite}} Tests ${{ job.status }} with ${{steps.ptests.outputs.NUM_FAILS}} errors. ${{steps.ptests.outputs.NUM_TESTS}} tests run. ${{steps.ptests.outputs.CYCLE_NAME}} ${{env.ZCROOT}}&version.id=${{steps.ptests.outputs.CYCLE_VERSION}}&cycle.id=${{steps.ptests.outputs.CYCLE_ID}}&versionReleased=false'
-#            SLACK_TITLE: ${{github.repository}}
-#            SLACK_WEBHOOK: ${{secrets.slack_webhook}}
-#            SLACK_LINK_NAMES : true
+            chmod a+x ./selenide.sh
+            bash ./selenide.sh ${{inputs.suite}} ${{inputs.environment}}
+          id: ptests
+        - name: Upload test result for job 2
+          if: always()
+          uses: actions/upload-artifact@v2
+          with:
+            name: selenium_results
+            path: "./testng/app/${{env.RESULTS_FILE}}"
+    update-slack:
+        if: always()
+        needs: selenium-tests
+        runs-on: self-hosted
+        steps:
+        - name: Download test result for job 2
+          uses: actions/download-artifact@v2
+          with:
+            name: selenium_results
+        - name: add write and execute access to all
+          run: chmod a+wx "./${{env.RESULTS_FILE}}"
+        - name: Fix Windows new line
+          run: dos2unix "./${{env.RESULTS_FILE}}"
+        - name: run the script
+          run: "./${{env.RESULTS_FILE}}"
+          id: ptests
+        - name: Check for failure and update slack notification message
+          if: failure()
+          run: echo "NOTIFY=@here" >> $GITHUB_ENV
+        - name: Update Slack
+          if: always()
+          uses: rtCamp/action-slack-notify@v2
+          env:
+            SLACK_CHANNEL: test-results-${{inputs.squad}}-${{inputs.environment}}
+            SLACK_USERNAME: GithubActions
+            SLACK_ICON: https://github.com/rtCamp.png?size=48
+            SLACK_COLOR: ${{ job.status }}
+            SLACK_MESSAGE: '${{env.NOTIFY}} ${{inputs.suite}} Tests ${{ job.status }} with ${{steps.ptests.outputs.NUM_FAILS}} errors. ${{steps.ptests.outputs.NUM_TESTS}} tests run. ${{steps.ptests.outputs.CYCLE_NAME}} ${{env.ZCROOT}}&version.id=${{steps.ptests.outputs.CYCLE_VERSION}}&cycle.id=${{steps.ptests.outputs.CYCLE_ID}}&versionReleased=false'
+            SLACK_TITLE: ${{github.repository}}
+            SLACK_WEBHOOK: ${{secrets.${{inputs.webhook_name}}}}
+            SLACK_LINK_NAMES : true
