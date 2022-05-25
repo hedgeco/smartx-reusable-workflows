@@ -9,6 +9,7 @@ jobs:
       suite: "usersAndToolsSmoke"
       environment: "production"
     secrets:
+      USER_TOKEN: ${{secrets.PAT_USER_TESTING}}
       JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
       ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
       ZEPHYR_SECRET: ${{secrets.ZEPHYR_SECRET}}
