@@ -10,3 +10,4 @@ jobs:
       environment: "production"
     secrets:
         slack_webhook: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_PRODUCTION}}
+        token: ${{secrets.PAT_USER_TESTING}}
