@@ -8,6 +8,5 @@ jobs:
       squad: "users-and-tools"
       suite: "usersAndToolsSmoke"
       environment: "production"
-    secrets:
-        slack_webhook: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_PRODUCTION}}
-        token: ${{secrets.PAT_USER_TESTING}}
+      webhook_name: "SLACK_TEST_RESULTS_USERS_AND_TOOLS_PRODUCTION"
+    secrets: inherit
