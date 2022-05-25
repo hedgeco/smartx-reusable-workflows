@@ -13,6 +13,9 @@ on:
       environment:   # e.g. "production"
         required: true
         type: string
+      webhook_name:
+        required: true
+        type: string
 
 env:
   JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
