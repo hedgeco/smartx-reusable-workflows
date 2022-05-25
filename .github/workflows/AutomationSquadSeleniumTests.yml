@@ -41,6 +41,7 @@ jobs:
           with:
             repository: hedgeco/smartx-testing
             path: smartx-testing
+            token: ${{ secrets.PAT_USER_TESTING }}
         - name: Where are we? Delete This 2
           run: |
             pwd
