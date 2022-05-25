@@ -13,10 +13,15 @@ on:
       environment:   # e.g. "production"
         required: true
         type: string
-      webhook_name:
+    secrets:
+      SLACK_WEBHOOK:
         required: true
-        type: string
-
+      JIRA_ACCT_ID:
+        required: true
+      ZEPHYR_ACCESS:
+        required: true
+      ZEPHYR_SECRET:
+        required: true
 env:
   JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
   ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
@@ -81,5 +86,5 @@ jobs:
             SLACK_COLOR: ${{ job.status }}
             SLACK_MESSAGE: '${{env.NOTIFY}} ${{inputs.suite}} Tests ${{ job.status }} with ${{steps.ptests.outputs.NUM_FAILS}} errors. ${{steps.ptests.outputs.NUM_TESTS}} tests run. ${{steps.ptests.outputs.CYCLE_NAME}} ${{env.ZCROOT}}&version.id=${{steps.ptests.outputs.CYCLE_VERSION}}&cycle.id=${{steps.ptests.outputs.CYCLE_ID}}&versionReleased=false'
             SLACK_TITLE: ${{github.repository}}
-            SLACK_WEBHOOK: ${{secrets.${{inputs.webhook_name}}}}
+            SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
             SLACK_LINK_NAMES : true
