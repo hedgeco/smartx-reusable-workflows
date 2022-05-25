@@ -43,7 +43,6 @@ jobs:
           with:
             repository: hedgeco/smartx-testing
             path: smartx-testing
-            username: "SmartxTesting"  #  TODO obfuscate this???   ${{ inputs.username }}
             token: ${{ secrets.PAT_USER_TESTING }}
         - name: Where are we? Delete This 2
           run: |
