@@ -58,7 +58,7 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
             name: selenium_results
-            path: "./testng/app/${{env.RESULTS_FILE}}"
+            path: "./smartx-testing/testng/app/${{env.RESULTS_FILE}}"
     update-slack:
         if: always()
         needs: selenium-tests
