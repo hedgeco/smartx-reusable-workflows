@@ -25,6 +25,8 @@ env:
   RESULTS_FILE: "results.sh"
   ZCROOT: "https://smartx.atlassian.net/projects/TEST?selectedItem=com.thed.zephyr.je__cycle-summary&testsTab=test-cycles-tab"
 
+
+
 jobs:
     selenium-tests:
         runs-on: AutomationRoot  #  TODO
@@ -41,6 +43,8 @@ jobs:
           with:
             repository: hedgeco/smartx-testing
             path: smartx-testing
+            username: "SmartxTesting"  #  TODO obfuscate this???   ${{ inputs.username }}
+            token: ${{ secrets.PAT_USER_TESTING }}
         - name: Where are we? Delete This 2
           run: |
             pwd
