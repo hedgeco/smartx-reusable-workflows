@@ -13,11 +13,6 @@ on:
       environment:   # e.g. "production"
         required: true
         type: string
-    secrets:
-      slack_webhook: # e.g. ${{secrets.SLACK_TEST_RESULTS_SMARTX_TESTING}}
-        required: true
-      token:
-        required: true
 
 env:
   JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
@@ -42,7 +37,7 @@ jobs:
         - uses: actions/checkout@v3
           with:
             repository: hedgeco/smartx-testing
-            token: ${{ secrets.token }}
+            token: ${{ secrets.PAT_USER_TESTING }}
             path: smartx-testing
         - name: Where are we? Delete This 2
           run: |
