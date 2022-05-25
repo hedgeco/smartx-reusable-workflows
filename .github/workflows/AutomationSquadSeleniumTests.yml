@@ -24,6 +24,7 @@ on:
         required: true
       ZEPHYR_SECRET:
         required: true
+
 env:
   JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
   ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
