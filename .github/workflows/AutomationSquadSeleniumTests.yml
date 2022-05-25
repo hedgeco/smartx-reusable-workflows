@@ -24,6 +24,10 @@ on:
         required: true
       ZEPHYR_SECRET:
         required: true
+      DEPLOYMENT_USER_QAU_KEY:
+        required: true
+      DEPLOYMENT_USER_QAU_SECRET:
+        required: true
 
 env:
   JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
