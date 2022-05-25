@@ -48,7 +48,7 @@ jobs:
             token: ${{ secrets.USER_TOKEN }}
             path: smartx-testing
         - name: Selenide Script
-          working-directory: ./smartx-teting/testng
+          working-directory: ./smartx-testing/testng
           run: |
             chmod a+x ./selenide.sh
             bash ./selenide.sh ${{inputs.suite}} ${{inputs.environment}}
