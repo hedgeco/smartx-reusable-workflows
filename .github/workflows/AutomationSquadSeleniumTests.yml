@@ -37,11 +37,11 @@ jobs:
             aws-region: us-east-1
         - name: Where are we? Delete This
           run: pwd
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
           with:
             repository: hedgeco/smartx-testing
-            path: smartx-testing
             token: ${{ secrets.PAT_USER_TESTING }}
+            path: smartx-testing
         - name: Where are we? Delete This 2
           run: |
             pwd
