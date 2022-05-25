@@ -24,6 +24,7 @@ on:
         required: true
       ZEPHYR_SECRET:
         required: true
+
 env:
   JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
   ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
@@ -58,7 +59,7 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
             name: selenium_results
-            path: "./testng/app/${{env.RESULTS_FILE}}"
+            path: "./smartx-testing/testng/app/${{env.RESULTS_FILE}}"
     update-slack:
         if: always()
         needs: selenium-tests
