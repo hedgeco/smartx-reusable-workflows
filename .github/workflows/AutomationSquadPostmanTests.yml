@@ -1,11 +1,4 @@
-# Runs automated tests on pull request Updates and updates slack channel
-#name: Pull request test automation
-#on:
-    #pull_request:
-    #workflow_dispatch:
-    #schedule:
-        #- cron: '15 0 * * *'
-
+# Reusable workflow template for Automated Postman test runs.
 name: Postman_Tests_Template
 on:
   workflow_call:
