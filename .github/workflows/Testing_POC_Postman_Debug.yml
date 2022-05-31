@@ -1,0 +1,21 @@
+name: AdminApi_Postman_Regression_Dev
+on: [workflow_dispatch]
+
+jobs:
+  call-workflow-passing-data:
+    uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadPostmanTests.yml@main
+    with:
+      squad: "Testing"
+      folders: "--folder Debug"
+      environment: "none"
+    secrets:
+      PAPIKEY: ${{secrets.PAPIKEY}}
+      PENVKEY: ${{secrets.POSTMAN_ENV_QAA_STAGING_XDOT1}}
+      COLLID_TO_RUN:  ${{secrets.ATS_AUTOMATION}}  # postman collection
+      USER_TOKEN: ${{secrets.PAT_USER_TESTING}}
+      JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
+      ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
+      ZEPHYR_SECRET: ${{secrets.ZEPHYR_SECRET}}
+      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS}}
+      DEPLOYMENT_USER_QAU_KEY: ${{ secrets.DEPLOYMENT_USER_QAU_KEY }}
+      DEPLOYMENT_USER_QAU_SECRET: ${{ secrets.DEPLOYMENT_USER_QAU_SECRET }}
