@@ -6,8 +6,9 @@ jobs:
     uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadPostmanTests.yml@main
     with:
       squad: "Testing"
-      folders: "--folder Debug"
+      suite: "none"
       environment: "none"
+      folders: "--folder Debug"
     secrets:
       PAPIKEY: ${{secrets.PAPIKEY}}
       PENVKEY: ${{secrets.POSTMAN_ENV_QAA_STAGING_XDOT1}}
