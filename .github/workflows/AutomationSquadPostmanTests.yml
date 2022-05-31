@@ -6,13 +6,13 @@ on:
       squad:    # e.g. "users-and-tools"
         required: true
         type: string
-      suite:    # e.g. "usersAndToolsSmoke"
+      suite:    # e.g. "Smoke"
         required: true
         type: string
       environment:   # e.g. "production"
         required: true
         type: string
-      folders:
+      folders:  # e.g. --folder FolderToRun1  (for multiple folders, repeat --folder <foldername>)
         required: true
         type: string
     secrets:
