@@ -1,4 +1,4 @@
-name: AdminApi_Postman_Regression_Dev
+name: Testing_POC_Postman_Debug_NoEnv
 on: [workflow_dispatch]
 
 jobs:
