@@ -1,14 +1,17 @@
-name: Users_UI_Production_Smoke_Tests
+name: Users_API_Production_Smoke_Tests
 on: [workflow_dispatch]
-
 jobs:
   call-workflow-passing-data:
-    uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadSeleniumTests.yml@main
+    uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadPostmanTests.yml@main
     with:
       squad: "users-and-tools"
-      suite: "usersAndToolsSmoke"
-      environment: "production"
+      suite: "API_Smoke"
+      environment: "Production"
+      folders: "--folder UsersToolsAdminSmoke:1.0"
     secrets:
+      PAPIKEY: ${{secrets.PAPIKEY}}
+      PENVKEY: ${{secrets.POSTMAN_ENV_QAA_PROD_XDOT1}}
+      COLLID_TO_RUN:  ${{secrets.ATS_AUTOMATION}}  # postman collection
       USER_TOKEN: ${{secrets.PAT_USER_TESTING}}
       JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
       ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}

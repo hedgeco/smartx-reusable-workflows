@@ -1,18 +1,20 @@
-name: Users_UI_Production_Smoke_Tests
-on: [workflow_dispatch]
-
+name: Users_UI_Tests_Regression_QA
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '30 0 * * *'
 jobs:
   call-workflow-passing-data:
     uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadSeleniumTests.yml@main
     with:
       squad: "users-and-tools"
-      suite: "usersAndToolsSmoke"
-      environment: "production"
+      suite: "usersAndToolsRegression"
+      environment: "qa"
     secrets:
       USER_TOKEN: ${{secrets.PAT_USER_TESTING}}
       JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
       ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
       ZEPHYR_SECRET: ${{secrets.ZEPHYR_SECRET}}
-      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_PRODUCTION}}
+      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_QA}}
       DEPLOYMENT_USER_QAU_KEY: ${{ secrets.DEPLOYMENT_USER_QAU_KEY }}
       DEPLOYMENT_USER_QAU_SECRET: ${{ secrets.DEPLOYMENT_USER_QAU_SECRET }}

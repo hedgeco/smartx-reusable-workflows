@@ -1,0 +1,25 @@
+name: Users_API_QA_Regression_Tests
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 0 * * *'
+
+jobs:
+  call-workflow-passing-data:
+    uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadPostmanTests.yml@main
+    with:
+      squad: "users-and-tools"
+      suite: "API_Regression"
+      environment: "QA"
+      folders: "--folder UsersToolsAdminRegression:1.0"
+    secrets:
+      PAPIKEY: ${{secrets.PAPIKEY}}
+      PENVKEY: ${{secrets.POSTMAN_ENV_QAA_QA_XDOT1}}
+      COLLID_TO_RUN:  ${{secrets.ATS_AUTOMATION}}  # postman collection
+      USER_TOKEN: ${{secrets.PAT_USER_TESTING}}
+      JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
+      ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
+      ZEPHYR_SECRET: ${{secrets.ZEPHYR_SECRET}}
+      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_QA}}
+      DEPLOYMENT_USER_QAU_KEY: ${{ secrets.DEPLOYMENT_USER_QAU_KEY }}
+      DEPLOYMENT_USER_QAU_SECRET: ${{ secrets.DEPLOYMENT_USER_QAU_SECRET }}
