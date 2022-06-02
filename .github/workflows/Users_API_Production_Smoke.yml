@@ -1,4 +1,4 @@
-name: Users_API_QA_Smoke_Tests
+name: Users_API_Production_Smoke_Tests
 on: [workflow_dispatch]
 jobs:
   call-workflow-passing-data:
@@ -6,16 +6,16 @@ jobs:
     with:
       squad: "users-and-tools"
       suite: "API_Smoke"
-      environment: "QA"
+      environment: "Production"
       folders: "--folder UsersToolsAdminSmoke:1.0"
     secrets:
       PAPIKEY: ${{secrets.PAPIKEY}}
-      PENVKEY: ${{secrets.POSTMAN_ENV_QAA_QA_XDOT1}}
+      PENVKEY: ${{secrets.POSTMAN_ENV_QAA_PROD_XDOT1}}
       COLLID_TO_RUN:  ${{secrets.ATS_AUTOMATION}}  # postman collection
       USER_TOKEN: ${{secrets.PAT_USER_TESTING}}
       JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
       ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
       ZEPHYR_SECRET: ${{secrets.ZEPHYR_SECRET}}
-      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_QA}}
+      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_PRODUCTION}}
       DEPLOYMENT_USER_QAU_KEY: ${{ secrets.DEPLOYMENT_USER_QAU_KEY }}
       DEPLOYMENT_USER_QAU_SECRET: ${{ secrets.DEPLOYMENT_USER_QAU_SECRET }}
