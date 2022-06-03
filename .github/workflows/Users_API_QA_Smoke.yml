@@ -7,7 +7,7 @@ jobs:
       squad: "users-and-tools"
       suite: "API_Smoke"
       environment: "QA"
-      folders: "--folder UsersToolsAdminSmoke:1.0"
+      folders: "--folder UsersToolsAdminSmoke:1.0 --folder UsersToolsClientSmoke:3.1"
     secrets:
       PAPIKEY: ${{secrets.PAPIKEY}}
       PENVKEY: ${{secrets.POSTMAN_ENV_QAA_QA_XDOT1}}
