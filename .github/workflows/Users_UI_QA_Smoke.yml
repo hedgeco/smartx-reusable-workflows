@@ -1,4 +1,4 @@
-name: Users_UI_Tests_Smoke_QA
+name: Users_UI_QA_Smoke_Tests
 on: [workflow_dispatch]
 
 jobs:
