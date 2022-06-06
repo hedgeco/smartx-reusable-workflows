@@ -1,20 +1,17 @@
-name: Users_UI_QA_Regression_Tests
-on:
-    workflow_dispatch:
-    schedule:
-        - cron: '30 0 * * *'
+name: Users_UI_Dev_Regression_Tests
+on: [workflow_dispatch]
 jobs:
   call-workflow-passing-data:
     uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadSeleniumTests.yml@main
     with:
       squad: "users-and-tools"
       suite: "usersAndToolsRegression"
-      environment: "qa"
+      environment: "dev"
     secrets:
       USER_TOKEN: ${{secrets.PAT_USER_TESTING}}
       JIRA_ACCT_ID: ${{secrets.JIRA_ACCT_ID}}
       ZEPHYR_ACCESS: ${{secrets.ZEPHYR_ACCESS}}
       ZEPHYR_SECRET: ${{secrets.ZEPHYR_SECRET}}
-      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_QA}}
+      SLACK_WEBHOOK: ${{secrets.SLACK_TEST_RESULTS_USERS_AND_TOOLS_DEV}}
       DEPLOYMENT_USER_QAU_KEY: ${{ secrets.DEPLOYMENT_USER_QAU_KEY }}
       DEPLOYMENT_USER_QAU_SECRET: ${{ secrets.DEPLOYMENT_USER_QAU_SECRET }}
