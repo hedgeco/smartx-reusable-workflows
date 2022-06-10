@@ -10,7 +10,7 @@ jobs:
     with:
       squad: "accounts-and-models"
       suite: "API_Regression"
-      environment: "QA"
+      environment: "qa"
       folders: "--folder AccountsModelsAdminRegression:1.0 --folder AccountsModelsClientRegression:3.1"
     secrets:
       PAPIKEY: ${{secrets.PAPIKEY}}
