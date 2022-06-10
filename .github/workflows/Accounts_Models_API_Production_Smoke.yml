@@ -6,7 +6,7 @@ jobs:
     with:
       squad: "accounts-and-models"
       suite: "API_Smoke"
-      environment: "Production"
+      environment: "production"
       folders: "--folder AccountModelAdminSmoke:1.0 --folder AccountModelClientSmoke:3.1"
     secrets:
       PAPIKEY: ${{secrets.PAPIKEY}}
