@@ -6,7 +6,7 @@ jobs:
     uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadSeleniumTests.yml@main
     with:
       squad: "users-and-tools"
-      suite: "usersAndToolsSmoke"
+      suite: "usersAndToolsUISmoke"
       environment: "qa"
     secrets:
       USER_TOKEN: ${{secrets.PAT_USER_TESTING}}

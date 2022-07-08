@@ -8,7 +8,7 @@ jobs:
     uses: hedgeco/smartx-reusable-workflows/.github/workflows/AutomationSquadSeleniumTests.yml@main
     with:
       squad: "accounts-and-models"
-      suite: "accountsAndModelsRegression"
+      suite: "accountsAndModelsUIRegression"
       environment: "qa"
     secrets:
       USER_TOKEN: ${{secrets.PAT_USER_TESTING}}
